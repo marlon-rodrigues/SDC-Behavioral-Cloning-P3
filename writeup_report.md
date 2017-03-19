@@ -50,7 +50,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 ####1. An appropriate model architecture has been employed
 
-My model is based on the proposed NVIDIA Network, which consists of a input layer (for images with dimensions 320x160) where data is normalized using a Keras lambda layer, a cropping layer, where I remove the top and botton sections of the image - those sections where the sky and trees and the hood of the car, which is unecessary for the model (model.py lines 68-69). The model is followed with 4 convolutional networks with 5x5 and 3x3 filter and depths between 24 and 64 with a RELU activation (model.py lines 70-74) and by 4 fully connected layers (model.py lines 75-79).
+My model is based on the proposed NVIDIA Network, which consists of a input layer (for images with dimensions 320x160) where data is normalized using a Keras lambda layer, a cropping layer, where I remove the top and botton sections of the image - those sections where the sky and trees and the hood of the car, which is unecessary for the model (model.py lines 68-69). The model is followed with 4 convolutional networks with 5x5 and 3x3 filters and depths between 24 and 64 with a RELU activation (model.py lines 70-74) and by 4 fully connected layers (model.py lines 75-79).
 
 ####2. Attempts to reduce overfitting in the model
 
