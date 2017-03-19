@@ -2,8 +2,6 @@
 
 ##Writeup Template
 
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
 ---
 
 **Behavioral Cloning Project**
@@ -54,15 +52,13 @@ The model.py file contains the code for training and saving the convolution neur
 
 ####1. An appropriate model architecture has been employed
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
-
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
+My model is based on the proposed NVIDIA Network, which consists of a input layer (for images with dimensions 320x160) where data is normalized using a Keras lambda layer, a cropping layer, where I remove the top and botton sections of the image - those sections where the sky and trees and the hood of the car, which is unecessary for the model (model.py lines 68-69). The model is followed with 4 convolutional networks with 5x5 and 3x3 filter and depths between 24 and 64 with a RELU activation (model.py lines 70-74) and by 4 fully connected layers (model.py lines 75-80), with a dropout layer in between (model.py line 78).
 
 ####2. Attempts to reduce overfitting in the model
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
+The model contains dropout layers in order to reduce overfitting (model.py lines 78). 
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that the model was not overfitting (code lines 16, 58-59 and 83). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 ####3. Model parameter tuning
 
