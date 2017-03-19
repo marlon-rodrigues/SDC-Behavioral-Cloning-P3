@@ -74,27 +74,25 @@ Training data was chosen to keep the vehicle driving on the road. I used a combi
 
 ####1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+The overall strategy for deriving a model architecture was to derive a model that could scale well with big amounts of data as well as perform a good job on keeping the car on the track when on autonomous mode.
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+My first step was to use the Network provided on the lectures describing the model with center images only. The Network performed reasonably good, but it could not scale - with a small set of data, the network was able to keep the car on the track for a few turns. However, when I tried to use more data to increase the performance the network wasn't able to handle it. The network consisted a Keras lamba layer, a cropping layer, and 2 convolution and max-pooling layers.
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
+In order to scale the Network I decided to use Keras generators. With the generator in place, the network was able to handle big amounts of data, but that didn't improve it enough to make it work. 
 
-To combat the overfitting, I modified the model so that ...
+I then decided to try the NVIDIA Network. After implementing it and adjusting it to the correct input and normalization data, I was able to get much better results, with the car staying on track for much longer, but that was still not totally satisfactory. I then decided to use the left and right images to improve the network. I was able to get much better results but still not sufficient to complete a total lap around the track. Next I decided to augment the data by adding the fliped images/measurements to the array of training data. 
 
-Then I ... 
+With that in place the results improved considerably. Next I applied a correction factor to the side cameras measurements, as most of the side cameras steering measurements were set to zero. I played around with different values until I found a correction value that provided the best results.
 
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+To combat the overfitting, I use the "Adam" optimizer to adjust the learning rate. I also split the data between training and validation sets. Finally, I have a dropout layer in my model so it can generalize better.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
 ####2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (model.py lines 67-80) consisted of a convolution neural network with the following layers and layer sizes: ...
 
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
-![alt text][image1]
 
 ####3. Creation of the Training Set & Training Process
 
