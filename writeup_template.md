@@ -90,9 +90,22 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 ####2. Final Model Architecture
 
-The final model architecture (model.py lines 67-80) consisted of a convolution neural network with the following layers and layer sizes: ...
+The final model architecture (model.py lines 67-80) consisted of a convolution neural network with the following layers and layer sizes: 
 
-
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Keras lambda - Input         		| 160x320x3, normalized image   							| 
+| Keras Image Cropping         		| Crops top by 70px and bottom by 25px   							| 
+| Convolution 5x5     	| 2x2 stride, outputs 78x158x24 with RELU activation 	|
+| Convolution 5x5     	| 2x2 stride, outputs 37x77x36 with RELU activation 	|
+| Convolution 5x5     	| 2x2 stride, outputs 17x37x48 with RELU activation 	|
+| Convolution 3x3     	| 1x1 stride, outputs 15x35x64 with RELU activation 	|
+| Convolution 3x3     	| 1x1 stride, outputs 13x33x64 with RELU activation 	|
+| Fully connected					|		outputs 100										|
+| Fully connected					|		outputs 50										|
+| DROPOUT					|												|
+| Fully connected					|		outputs 10										|
+| Fully connected					|		outputs 1									|
 
 ####3. Creation of the Training Set & Training Process
 
