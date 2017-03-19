@@ -60,7 +60,7 @@ The model was trained and validated on different data sets to ensure that the mo
 
 The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 81).
 
-The model also uses a correction factor for side camera images. The correction factor is set to 0.38, so for any side camera images, the steering measurement will be adjusted to the original value * 0.38 (for left cameras) or the original value * (-0.38) (for right cameras). That is done because some of the input data collected from the simulator contained a steering measurement of zero even when the car was perform a turn.
+The model also uses a correction factor for side camera images. The correction factor is set to 0.38, so for any side camera images, the steering measurement will be adjusted to the original value * 0.38 (for left cameras) or the original value * (-0.38) (for right cameras). That is done because some of the input data collected from the simulator contained a steering measurement of zero even when the car was performing a turn.
 
 ####4. Appropriate training data
 
