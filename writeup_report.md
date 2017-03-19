@@ -72,13 +72,13 @@ Training data was chosen to keep the vehicle driving on the road. I used a combi
 
 The overall strategy for deriving a model architecture was to derive a model that could scale well with big amounts of data as well as perform a good job on keeping the car on the track when on autonomous mode.
 
-My first step was to use the Network provided on the lectures describing the model with center images only. The Network performed reasonably good, but it could not scale - with a small set of data, the network was able to keep the car on the track for a few turns. However, when I tried to use more data to increase the performance the network wasn't able to handle it. The network consisted a Keras lamba layer, a cropping layer, and 2 convolution and max-pooling layers.
+My first step was to use the Network provided on the lectures describing the model with center images only. The Network performed reasonably good, but it could not scale - with a small set of data, the network was able to keep the car on the track for a few turns. However, when I tried to use more data to increase the performance the network wasn't able to handle it. The network consisted of a Keras lambda layer, a cropping layer, and 2 convolution and max-pooling layers.
 
-In order to scale the Network I decided to use Keras generators. With the generator in place, the network was able to handle big amounts of data, but that didn't improve it enough to make it work. 
+In order to scale the Network I decided to use Keras generators. With the generator in place, the network was able to handle big amounts of data, but that didn't improved it enough to make it work. 
 
-I then decided to try the NVIDIA Network. After implementing it and adjusting it to the correct input and normalization data, I was able to get much better results, with the car staying on track for much longer, but that was still not totally satisfactory. I then decided to use the left and right images to improve the network. I was able to get much better results but still not sufficient to complete a total lap around the track. Next I decided to augment the data by adding the fliped images/measurements to the array of training data. 
+I then decided to try the NVIDIA Network. After implementing it and adjusting it to the correct input and normalization data, I was able to get much better results, with the car staying on track for much longer, but that was still not totally satisfactory. I then decided to use the left and right images to improve the network. I was able to get much better results but still not sufficient to complete a full lap around the track. Next, I decided to augment the data by adding the fliped images/measurements to the array of training data. 
 
-With that in place the results improved considerably. Next I applied a correction factor to the side cameras measurements, as most of the side cameras steering measurements were set to zero. I played around with different values until I found a correction value that provided the best results.
+With that in place the results improved considerably. Next, I applied a correction factor to the side cameras measurements, as most of the side cameras steering measurements were set to zero. I played around with different values until I found a correction value that provided the best results.
 
 To combat the overfitting, I use the "Adam" optimizer to adjust the learning rate. I also split the data between training and validation sets.
 
@@ -86,7 +86,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 ####2. Final Model Architecture
 
-The final model architecture (model.py lines 67-80) consisted of a convolution neural network with the following layers and layer sizes: 
+The final model architecture (model.py lines 67-79) consisted of a convolution neural network with the following layers and layer sizes: 
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
