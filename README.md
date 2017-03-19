@@ -8,7 +8,7 @@ Overview
 
 In this project, I used what I've learned about deep neural networks and convolutional neural networks to clone driving behavior. I trained, validated and tested a model using Keras. The model outputs a steering angle to an autonomous vehicle.
 
-I used a simulator provided by Udacity where you could steer a car around a track for data collection. I used image data and steering angles to train a neural network and then used this model to drive the car autonomously around the track.
+I used a simulator provided by Udacity where I could steer a car around a track for data collection. I used image data and steering angles to train a neural network and then used this model to drive the car autonomously around the track.
 
 The Project
 ---
